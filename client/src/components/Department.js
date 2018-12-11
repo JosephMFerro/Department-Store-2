@@ -1,8 +1,10 @@
 import React from 'react';
 import axios from "axios";
+import { Link, } from "react-router-dom";
+import Items from './Items';
 
 class Department extends React.Component {
-  state = { department: [], };
+  state = { department: {}, items: []} ;
 
   componentDidMount() {
     const { id, } = this.props.match.params;
@@ -14,10 +16,14 @@ class Department extends React.Component {
 
 
   render() {
-    const {name} = this.state.department
+    const {name, id} = this.state.department
     return (
       <div>
-        <h3>{name}</h3>
+       <h2>{name}</h2>
+       <p>testitem</p>
+       <p>usa made plastic test item from {name}</p>
+       <p>13.99</p>
+       <p>{this.state.items}</p>
       </div>
     )
   }

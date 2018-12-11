@@ -15,7 +15,7 @@ class Departments extends React.Component {
   renderDepts = () => {
     return this.state.departments.map( d => (
       <Link to={`/departments/${d.id}`}>
-        <li>{ d.name }</li>
+        <p>{ d.name }</p>
       </Link>
     ))
   }
@@ -23,10 +23,8 @@ class Departments extends React.Component {
   render () {
     return (
       <div>
-        <h2>Departments</h2>
-        <ul>
+        <h2>departments.</h2>
           { this.renderDepts() }
-        </ul>
       </div>
     )
   }
