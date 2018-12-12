@@ -1,6 +1,8 @@
 import React from 'react';  
 import axios from "axios";
 import { Link, } from "react-router-dom";
+import { DepContainer } from '../styles/appstyle';
+import { Divider } from 'semantic-ui-react';
 
 class Departments extends React.Component {
   state = { departments: [], };
@@ -14,9 +16,16 @@ class Departments extends React.Component {
 
   renderDepts = () => {
     return this.state.departments.map( d => (
-      <Link to={`/departments/${d.id}`}>
-        <p>{ d.name }</p>
-      </Link>
+        <Link to={`/departments/${d.id}`}>
+          <DepContainer>
+            <p>{ d.name }</p>
+            <Divider inverted />
+            <p style = {{color: "white"}}>
+              An graeci fastidii vix, qui putant prodesset cu. Usu in nonumy splendide. 
+              His dicunt tacimates maiestatis no, mea etiam sententiae ea.
+            </p>
+          </DepContainer>
+        </Link>
     ))
   }
 

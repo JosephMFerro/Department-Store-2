@@ -11,9 +11,8 @@ class Api::DepartmentsController < ApplicationController
 
   def create
     department = Department.new(department_params)
-
     if department.save
-      render json: departmene
+      render json: department
     else
       render json: department.errors
     end
@@ -33,10 +32,10 @@ class Api::DepartmentsController < ApplicationController
 
   private
     def set_department
-      @product = Product.find(params[:id])
+      @department = Department.find(params[:id])
     end
 
     def department_params
-      params.require(:department).permit(:name)
+      params.require(:department).permit(:name, :description)
     end
 end

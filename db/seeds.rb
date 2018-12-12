@@ -1,14 +1,15 @@
-5.times do  
-  department = Department.create(
-    name: Faker::LordOfTheRings.location,
+20.times do
+  d = Department.create(
+    name: Faker::Commerce.department,
   )
-  20.times do 
-    Item.create(
-      name: Faker::Movies::LordOfTheRings.character,
-      description: Faker::TheFreshPrinceOfBelAir.quote,
+  10.times do
+    d.items.create(
+      name: Faker::Commerce.product_name,
+      description: Faker::GreekPhilosophers.quote,
       price: Faker::Commerce.price,
     )
   end
 end
-puts "--SUCCESS--"
-puts "5 departments created -- 20 items in each"
+
+print `clear`
+puts "20 Departments Seeded with 10 Items each!"

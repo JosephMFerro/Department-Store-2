@@ -1,22 +1,22 @@
 import React from 'react';
 import { NavLink, } from 'react-router-dom';
+import { StyledNav } from '../styles/appstyle';
 
 const NavBar = () => (
-  <nav>
-    <NavLink exact to = "/" >Home</NavLink>
+  <StyledNav>
+    <NavLink exact to = "/" activeStyle={styles.active} style = {{color: "white"}}>Home</NavLink>
     { " " }
-    <NavLink exact to = "/departments">Departments</NavLink>
+    <NavLink exact to = "/departments" activeStyle={styles.active} style = {{color: "white"}}>Departments</NavLink>
     { " " }
-    <NavLink exact to = "/contact">Contact</NavLink>
-  </nav>
+    <NavLink exact to = "/contact" activeStyle={styles.active} style = {{color: "white"}}>Contact</NavLink>
+  </StyledNav>
 )
 
-// const styles = {
-//   active: {
-//     fontFamily: "none",
-//     fontWeight: "bold",
-//     color: "black"
-//   }
-// };
+const styles = {
+  active: {
+    color: "orange",
+    fontWeight: "bold",
+  }
+};
 
 export default NavBar;
