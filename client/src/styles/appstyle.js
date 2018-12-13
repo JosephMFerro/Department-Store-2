@@ -28,7 +28,6 @@ export const DepContainer = styled.div`
   margin: 10px;
   width: 800px;
   padding: 10px;
-  color: #ECDB54; !important
-  text-align: center;
+  color: #ECDB54;
   border-radius: 2px;
 `;

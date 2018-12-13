@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from "axios";
-import { DepContainer} from '../styles/appstyle';
-import {Divider, } from 'semantic-ui-react';
+import { DepContainer, MyButton, } from '../styles/appstyle';
+import {Divider, Button, } from 'semantic-ui-react';
 
 class Department extends React.Component {
   state = { department: {}, items: [], } ;
@@ -14,10 +14,23 @@ class Department extends React.Component {
       .then( res => this.setState({ items: res.data, }))
   }
 
+  removeItem = (id) => {
+    const dId = this.props.match.params.id;
+      axios.delete(`/api/departments/${dId}/items/${id}`)
+        .then( res => {
+          const items = this.state.items.filter( i => {
+            if (i.id !== id)
+              return i;
+          })
+          this.setState({ items, });
+      })
+  }
+
   renderItems() {
     return this.state.items.map( i => (
-      <div>
+      <div key = {i.id}>
         <DepContainer>
+        <Button compact color = "yellow" style = {{float: "right"}} onClick={() => this.removeItem(i.id)}>del</Button>
           <p style = {{color: "white"}}>{i.name}</p>
           <Divider inverted />
           <p>{i.description}</p>
