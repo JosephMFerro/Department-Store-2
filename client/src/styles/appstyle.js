@@ -23,11 +23,19 @@ export const AppContainer = styled.div`
 `;
 
 export const DepContainer = styled.div`
+  text-align: left;
   background: #006E6D;
-  height: 110px;
+  height: 100%;
   margin: 10px;
   width: 800px;
   padding: 10px;
   color: #ECDB54;
   border-radius: 2px;
+`;
+
+export const CartContainer = styled.div`
+  float: left;
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
 `;

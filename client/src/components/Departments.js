@@ -38,7 +38,7 @@ class Departments extends React.Component {
   render () {
     return (
       <div>
-        <h2>departments.</h2>
+        <h2>Departments</h2>
           { this.renderDepts() }
       </div>
     )

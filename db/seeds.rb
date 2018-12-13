@@ -1,15 +1,15 @@
-20.times do
+25.times do
   d = Department.create(
     name: Faker::Commerce.department,
   )
   10.times do
     d.items.create(
       name: Faker::Commerce.product_name,
-      description: Faker::GreekPhilosophers.quote,
+      description: Faker::Hipster.paragraph,
       price: Faker::Commerce.price,
     )
   end
 end
 
-print `clear`
-puts "20 Departments Seeded with 10 Items each!"
+puts "SUCCESS"
+puts "25 departments created with 10 items in each"

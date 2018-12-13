@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => (
   <div>
-    <h2>contact page.</h2>
+    <h2>Contact Page</h2>
     <p>call me</p>
     <p>801.696.5195</p>
     <br />

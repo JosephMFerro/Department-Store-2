@@ -13,7 +13,7 @@ const App = () => (
   <AppColor>
     <AppContainer>
       <Fragment>
-        <NavBar />
+        <NavBar /> 
         <Divider inverted/>
         <Switch>
           <Route exact path = "/" component = {Home} />
