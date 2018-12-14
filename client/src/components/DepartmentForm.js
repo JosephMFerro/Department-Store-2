@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from "axios";
-import { Form, } from "semantic-ui-react";
+import { Link, } from 'react-router-dom';
+import { Form, Button, } from "semantic-ui-react";
 
 class DepartmentForm extends React.Component {
   state = {name: "", editing: false};
@@ -40,9 +41,13 @@ class DepartmentForm extends React.Component {
             value = {name}
             onChange = {this.handleChange}
           />
+
           <Form.Button color = "yellow">
             submit
           </Form.Button>
+          <Link to = "/departments">
+              cancel
+          </Link>
         </Form>
       </div>
     )

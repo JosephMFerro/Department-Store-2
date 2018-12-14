@@ -2,7 +2,7 @@ import React from 'react';
 import axios from "axios";
 import { Link, } from "react-router-dom";
 import { DepContainer } from '../styles/appstyle';
-import { Divider, Button, } from 'semantic-ui-react';
+import { Divider, Button, Icon } from 'semantic-ui-react';
 
 class Departments extends React.Component {
   state = { departments: [], };
@@ -24,20 +24,22 @@ class Departments extends React.Component {
         <Link to={`/departments/${d.id}`} key = {d.id}>
           <DepContainer>
             <Button 
+              icon
               compact 
               color = "yellow" 
               style = {{float: "right"}} 
               onClick={() => this.handleDelete(d.id)}
               >
-                del
+                <Icon name = "trash" />
             </Button>
             <Link to = {`/departments/${d.id}/edit`}>
               <Button 
+                icon
                 compact 
                 color = "yellow" 
                 style = {{float: "right"}}
                 >
-                  edit
+                  <Icon name = "pencil" />
               </Button>
             </Link>
             <p>{ d.name }</p>

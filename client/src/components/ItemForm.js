@@ -1,9 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-import {Form} from 'semantic-ui-react';
+import { Link, } from 'react-router-dom';
+import { Form, } from 'semantic-ui-react';
 
 class ItemForm extends React.Component {
-  state = {name: "", description: "", price: ""}
+  state = {name: "", description: "", price: "", editing: false}
+
+  componentDidMount() {
+    const { id, itemId } = this.props.match.params;
+    if (itemId)
+      this.setState({editing: true})
+      axios.get(`/api/departments/${id}/items/${itemId}`)
+        .then( res => this.setState({ ...res.data, }))
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -19,10 +28,11 @@ class ItemForm extends React.Component {
   }
 
   render() {
-    const { name, description, price } = this.state;
+    const { name, description, price, editing} = this.state;
+    const { id, } = this.props.match.params
     return (
       <div>
-        <h2>Add an Item</h2>
+        { editing ? <h2>Edit Item</h2> : <h2>Add Item</h2>}
         <Form onSubmit = {this.handleSubmit}>
           <Form.Input 
             name = "name"
@@ -45,6 +55,9 @@ class ItemForm extends React.Component {
           <Form.Button color = "yellow">
             submit
           </Form.Button>
+          <Link to = {`/departments/${id}`}>
+              cancel
+          </Link>
         </Form>
       </div>
     )

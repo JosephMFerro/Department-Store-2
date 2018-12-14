@@ -34,7 +34,8 @@ class Department extends React.Component {
     }));
   }
 
-  renderItems() {
+  renderItems(id) {
+    const department_id = this.props.match.params.id;
     return this.state.items.map( i => (
       <div key = {i.id} count = {this.state}>
         <DepContainer >
@@ -48,15 +49,16 @@ class Department extends React.Component {
             <Icon name = "trash" />
           </Button>
 
-          <Button 
-          icon 
-          compact 
-          color = "yellow" 
-          style = {{float: "right"}} 
-          // onClick={() => this.renderEdit(i.id)}
-          >
-            <Icon name = "pencil" />
-          </Button>
+          <Link to = {`/departments/${department_id}/items/${i.id}/edit`}>
+            <Button 
+              icon 
+              compact 
+              color = "yellow" 
+              style = {{float: "right"}}
+            >
+              <Icon name = "pencil" />
+            </Button>
+          </Link>
 
           <Button 
           icon 
