@@ -39,6 +39,9 @@ class Departments extends React.Component {
     return (
       <div>
         <h2>Departments</h2>
+        <Link to = "/departments/new">
+          add department
+        </Link>
           { this.renderDepts() }
       </div>
     )

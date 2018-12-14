@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios";
+import { Link, } from 'react-router-dom';
 import { DepContainer, } from '../styles/appstyle';
 import {Divider, Button, Icon, } from 'semantic-ui-react';
 import { CartContainer, } from '../styles/appstyle';
@@ -67,6 +68,15 @@ class Department extends React.Component {
             <Icon name = "shopping cart" />
           </Button>
 
+          <Button 
+          icon 
+          compact 
+          color = "yellow" 
+          style = {{float: "right"}} 
+          >
+            <Icon name = "star" />
+          </Button>
+
           <p style = {{color: "white", marginRight: "-50.77px"}}>{i.name}</p>
           <Divider inverted />
           <p>{i.description}</p>
@@ -86,6 +96,9 @@ class Department extends React.Component {
           <p>: {this.state.count}</p>
         </CartContainer> 
        <h2>{name}</h2>
+       <Link to = {`/departments/${id}/items/new`}>
+        add item
+       </Link>
        <div>
          { this.renderItems() }
        </div>
