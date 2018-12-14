@@ -3,12 +3,24 @@ import axios from "axios";
 import { Form, } from "semantic-ui-react";
 
 class DepartmentForm extends React.Component {
-  state = {name: ""};
+  state = {name: "", editing: false};
+
+  componentDidMount() {
+    if (this.props.edit)
+    this.setState({editing: true});
+      axios.get(`/api/departments/${this.props.match.params.id}`)
+        .then( res => this.setState({ ...res.data, }))
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
-      axios.post(`/api/departments`, { ...this.state })
-        .then( res => this.props.history.push(`/departments/${res.data.id}`))
+      if (this.props.edit) {
+        axios.put(`/api/departments/${this.props.match.params.id}`, { ...this.state })
+          .then(res => this.props.history.push(`/departments/${res.data.id}`))
+      } else {
+        axios.post(`/api/departments`, { ...this.state })
+          .then( res => this.props.history.push(`/departments/${res.data.id}`))
+      }
   }
 
   handleChange = (e) => {
@@ -20,7 +32,7 @@ class DepartmentForm extends React.Component {
     const {name} = this.state;
     return (
       <div>
-        <h2>Add a Department</h2>
+        {this.state.editing ? <h2>Edit Department</h2> : <h2>Add Department</h2>}
         <Form onSubmit = {this.handleSubmit}>
           <Form.Input 
             name = "name"

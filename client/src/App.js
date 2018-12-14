@@ -22,8 +22,9 @@ const App = () => (
           <Route exact path = "/contact" component = {Contact} />
           <Route exact path = "/departments" component = {Departments} />
           <Route exact path = "/departments/new" component = {DepartmentForm} />
-          <Route exact path = "/departments/:id/items/new" component = {ItemForm} />
+          <Route exact path="/departments/:id/edit" render={props => <DepartmentForm edit {...props} />} />
           <Route exact path = "/departments/:id" component = {Department} />
+          <Route exact path = "/departments/:id/items/new" component = {ItemForm} />
           <Route component = {NoPage} />
         </Switch>
         <Divider horizontal inverted >©2018 joe ferro</Divider>

@@ -23,7 +23,23 @@ class Departments extends React.Component {
     return this.state.departments.map( d => (
         <Link to={`/departments/${d.id}`} key = {d.id}>
           <DepContainer>
-          <Button compact color = "yellow" style = {{float: "right"}} onClick={() => this.handleDelete(d.id)}>del</Button>
+            <Button 
+              compact 
+              color = "yellow" 
+              style = {{float: "right"}} 
+              onClick={() => this.handleDelete(d.id)}
+              >
+                del
+            </Button>
+            <Link to = {`/departments/${d.id}/edit`}>
+              <Button 
+                compact 
+                color = "yellow" 
+                style = {{float: "right"}}
+                >
+                  edit
+              </Button>
+            </Link>
             <p>{ d.name }</p>
             <Divider inverted />
             <p style = {{color: "white"}}>
