@@ -23,11 +23,10 @@ class Departments extends React.Component {
     return this.state.departments.map( d => (
         <Link to={`/departments/${d.id}`} key = {d.id}>
           <DepContainer>
+            <Button.Group basic style = {{float: "right"}} color = "yellow" >
             <Button 
               icon
               compact 
-              color = "yellow" 
-              style = {{float: "right"}} 
               onClick={() => this.handleDelete(d.id)}
               >
                 <Icon name = "trash" />
@@ -36,12 +35,11 @@ class Departments extends React.Component {
               <Button 
                 icon
                 compact 
-                color = "yellow" 
-                style = {{float: "right"}}
                 >
                   <Icon name = "pencil" />
               </Button>
             </Link>
+            </Button.Group>
             <p>{ d.name }</p>
             <Divider inverted />
             <p style = {{color: "white"}}>

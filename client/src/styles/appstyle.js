@@ -5,7 +5,7 @@ export const StyledNav = styled.nav `
   font-size: 17px;
   height: 38px;
   border-radius: 2px;
-  background: #006E6D;
+  
 `;
 
 export const AppColor = styled.div`
@@ -24,7 +24,7 @@ export const AppContainer = styled.div`
 
 export const DepContainer = styled.div`
   text-align: left;
-  background: #006E6D;
+  background: #002c59;
   height: 100%;
   margin: 10px;
   width: 800px;

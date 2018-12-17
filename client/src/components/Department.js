@@ -38,48 +38,42 @@ class Department extends React.Component {
     const department_id = this.props.match.params.id;
     return this.state.items.map( i => (
       <div key = {i.id} count = {this.state}>
-        <DepContainer >
-        <Button 
-          icon 
-          compact 
-          color = "yellow" 
-          style = {{float: "right"}} 
-          onClick={() => this.removeItem(i.id)}
-          >
-            <Icon name = "trash" />
-          </Button>
+        <DepContainer style = {{background: "none"}}>
+          <Button.Group basic style = {{float: "right"}} color = "yellow">
+            <Button 
+              icon 
+              compact
+              onClick={() => this.removeItem(i.id)}
+            >
+              <Icon name = "trash" />
+            </Button>
 
-          <Link to = {`/departments/${department_id}/items/${i.id}/edit`}>
+            <Link to = {`/departments/${department_id}/items/${i.id}/edit`}>
+              <Button 
+                icon 
+                compact 
+              >
+                <Icon name = "pencil" />
+              </Button>
+            </Link>
+
             <Button 
               icon 
               compact 
-              color = "yellow" 
-              style = {{float: "right"}}
+              onClick = {() => this.checkout(i.id)}
             >
-              <Icon name = "pencil" />
+              <Icon name = "shopping cart" />
             </Button>
-          </Link>
 
-          <Button 
-          icon 
-          compact 
-          color = "yellow" 
-          style = {{float: "right"}} 
-          onClick = {() => this.checkout(i.id)}
-          >
-            <Icon name = "shopping cart" />
-          </Button>
+            <Button 
+              icon 
+              compact 
+            >
+              <Icon name = "star" />
+            </Button>
+          </Button.Group>
 
-          <Button 
-          icon 
-          compact 
-          color = "yellow" 
-          style = {{float: "right"}} 
-          >
-            <Icon name = "star" />
-          </Button>
-
-          <p style = {{color: "white", marginRight: "-50.77px"}}>{i.name}</p>
+          <p style = {{color: "white",}}>{i.name}</p>
           <Divider inverted />
           <p>{i.description}</p>
           <p style = {{color: "white"}}>${i.price}</p>
@@ -94,10 +88,12 @@ class Department extends React.Component {
     return (
       <div>
         <CartContainer>
-          <Icon name = "shopping cart"/>
-          <p>: {this.state.count}</p>
+          <Link to = "/MyCart">
+            <Icon name = "shopping cart"/>
+          </Link>
+            <p>: {this.state.count}</p>
         </CartContainer> 
-       <h2>{name}</h2>
+       <h2 style = {{marginRight: "48px"}}>{name}</h2>
        <Link to = {`/departments/${id}/items/new`}>
         add item
        </Link>

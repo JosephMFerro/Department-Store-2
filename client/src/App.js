@@ -8,6 +8,7 @@ import Department from './components/Department';
 import NavBar from './components/NavBar';
 import DepartmentForm from './components/DepartmentForm';
 import ItemForm from './components/ItemForm';
+import MyCart from './components/MyCart';
 import {AppContainer, AppColor } from './styles/appstyle';
 import {Divider} from 'semantic-ui-react';
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route exact path = "/departments/new" component = {DepartmentForm} />
           <Route exact path="/departments/:id/edit" render={props => <DepartmentForm edit {...props} />} />
           <Route exact path = "/departments/:id" component = {Department} />
+          <Route exact path = "/MyCart" component = {MyCart} />
           <Route exact path = "/departments/:id/items/new" component = {ItemForm} />
           <Route exact path="/departments/:id/items/:itemId/edit" component={ItemForm} />
           <Route component = {NoPage} />
